@@ -2,17 +2,12 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
 
 import TabBarIcon from '../components/TabBarIcon';
-import {HomePage, SettingsPage} from '../screens/AppFront/';
-import LinksScreen from '../screens/LinksScreen';
-
+import { HomePage, SettingsPage, ReportPage, VitalsPage } from '../screens/AppFront/';
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
 
 export default function BottomTabNavigator({ navigation, route }) {
-  // Set the header title on the parent stack navigator depending on the
-  // currently active tab. Learn more in the documentation:
-  // https://reactnavigation.org/docs/en/screen-options-resolution.html
-  navigation.setOptions({ headerTitle: getHeaderTitle(route) });
+  // navigation.setOptions({ headerTitle: getHeaderTitle(route) });
 
   return (
     <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
@@ -20,16 +15,35 @@ export default function BottomTabNavigator({ navigation, route }) {
         name="Home"
         component={HomePage}
         options={{
-          title: 'Get Started',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
+          title: 'Home',
+          tabBarIcon: ({ focused }) => <TabBarIcon ion focused={focused} name="md-home" />,
         }}
       />
+
+      <BottomTab.Screen
+        name="Report"
+        component={ReportPage}
+        options={{
+          title: 'Report',
+          tabBarIcon: ({ focused }) => <TabBarIcon fontawesome focused={focused} name="send" />,
+        }}
+      />
+
+      <BottomTab.Screen
+        name="Vitals"
+        component={VitalsPage}
+        options={{
+          title: 'Vitals',
+          tabBarIcon: ({ focused }) => <TabBarIcon ion focused={focused} name="md-pulse" />,
+        }}
+      />
+
       <BottomTab.Screen
         name="Settings"
         component={SettingsPage}
         options={{
           title: 'Settings',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="ios-settings" />,
+          tabBarIcon: ({ focused }) => <TabBarIcon ion focused={focused} name="ios-settings" />,
         }}
       />
     </BottomTab.Navigator>

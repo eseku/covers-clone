@@ -8,6 +8,7 @@ const Form = (props) => {
       <View
         style={{
           flexDirection: 'row',
+          marginBottom: 10,
         }}
       >
         <TextInput keyboardType="number-pad" style={styles.input} />

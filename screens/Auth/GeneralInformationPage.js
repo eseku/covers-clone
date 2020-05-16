@@ -70,13 +70,7 @@ const GeneralInformationPage = (props) => {
           </ScrollView>
         </View>
         <View style={styles.FooterStyle}>
-          <Button
-            backgroundColor="#000"
-            title="Let's get started..."
-            onPress={() => {
-              props.navigation.goBack();
-            }}
-          />
+          <Button backgroundColor="#000" title="Let's get started..." onPress={() => {}} />
         </View>
       </View>
     </SafeAreaView>

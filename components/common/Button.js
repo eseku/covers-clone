@@ -19,7 +19,6 @@ export default Button;
 const styles = StyleSheet.create({
   wrapper: {
     width: '100%',
-    marginTop: 10,
     alignItems: 'center',
     paddingVertical: 20,
   },

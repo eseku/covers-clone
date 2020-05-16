@@ -1,18 +1,16 @@
-import React from 'react'
-import AuthNavigator from "./Auth/index"
-import AppNavigator from "./AppFront/index"
-
-
+import React from 'react';
+import AuthNavigator from './Auth/index';
+import AppNavigator from './AppFront/index';
 
 const index = () => {
-    let isLoggedIn = false;
+  let isLoggedIn = true;
 
-    return (
-        <>
-            {isLoggedIn && <AppNavigator/>}
-            {!isLoggedIn && <AuthNavigator/>}
-        </>
-    )
-}
+  return (
+    <>
+      {isLoggedIn && <AppNavigator />}
+      {!isLoggedIn && <AuthNavigator />}
+    </>
+  );
+};
 
-export default index
+export default index;

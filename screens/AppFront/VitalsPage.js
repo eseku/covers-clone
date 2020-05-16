@@ -1,20 +1,22 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { PageHeader } from '~/components/common';
+//imrn
 
-const HomePage = () => {
+const VitalsPage = () => {
   return (
     <View style={styles.wrapper}>
-      <PageHeader title="Home" />
-      <Text>Home</Text>
+      <PageHeader title="Vitals" />
+      <Text>Vitals</Text>
     </View>
   );
 };
 
-export default HomePage;
+export default VitalsPage;
 
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
   },
 });
+//rnstyle
