@@ -4,6 +4,7 @@ import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import useCachedResources from './hooks/useCachedResources';
 // import LinkingConfiguration from './navigation/LinkingConfiguration';
 import RootNavigator from '~/navigation';
+import { Provider } from '~/context';
 
 export default function App(props) {
   const isLoadingComplete = useCachedResources();
@@ -11,12 +12,14 @@ export default function App(props) {
     return null;
   } else {
     return (
-      <View style={styles.container}>
-        {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
-        <NavigationContainer /*linking={LinkingConfiguration}*/>
-          <RootNavigator />
-        </NavigationContainer>
-      </View>
+      <Provider>
+        <View style={styles.container}>
+          {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
+          <NavigationContainer /*linking={LinkingConfiguration}*/>
+            <RootNavigator />
+          </NavigationContainer>
+        </View>
+      </Provider>
     );
   }
 }

@@ -1,21 +1,20 @@
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity, Text, SafeAreaView, Image } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
+import { Notifications, Profile } from '../header/';
 
-const Header = ({ title = 'set title' }) => {
+const Header = ({ title = 'set title', navigation }) => {
   return (
     <SafeAreaView>
       <View style={styles.wrapper}>
         <View style={styles.TopViewStyle}>
           <View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
               <Image source={require('../../assets/images/profile.png')} style={styles.ProfileImageStyle} />
             </TouchableOpacity>
           </View>
           <View>
-            <TouchableOpacity>
-              <FontAwesome name="bell-o" size={30} color="black" />
-            </TouchableOpacity>
+            <Notifications />
           </View>
         </View>
         <View style={styles.BottomViewStyle}>
@@ -32,7 +31,7 @@ const styles = StyleSheet.create({
   wrapper: {
     width: '100%',
     borderBottomWidth: 1,
-    borderBottomColor: '#DCDEE1',
+    borderBottomColor: '#f4f6fa',
   },
   text: {
     color: '#000',

@@ -1,8 +1,10 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
-
+import Vitals from './vitals/';
+import Reports from './reports/';
 import TabBarIcon from '../components/TabBarIcon';
-import { HomePage, SettingsPage, ReportPage, VitalsPage } from '../screens/AppFront/';
+import { SettingsPage, ReportPage, VitalsPage } from '../screens/AppFront/';
+import HomePage from './Home';
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
 
@@ -22,7 +24,7 @@ export default function BottomTabNavigator({ navigation, route }) {
 
       <BottomTab.Screen
         name="Report"
-        component={ReportPage}
+        component={Reports}
         options={{
           title: 'Report',
           tabBarIcon: ({ focused }) => <TabBarIcon fontawesome focused={focused} name="send" />,
@@ -31,7 +33,7 @@ export default function BottomTabNavigator({ navigation, route }) {
 
       <BottomTab.Screen
         name="Vitals"
-        component={VitalsPage}
+        component={Vitals}
         options={{
           title: 'Vitals',
           tabBarIcon: ({ focused }) => <TabBarIcon ion focused={focused} name="md-pulse" />,

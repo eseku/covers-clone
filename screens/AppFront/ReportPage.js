@@ -1,13 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { PageHeader } from '~/components/common';
-//imrn
+import { Reports } from '~/components/reports';
 
-const ReportPage = () => {
+const ReportPage = ({ navigation }) => {
   return (
     <View style={styles.wrapper}>
-      <PageHeader title="Report" />
-      <Text>Report</Text>
+      <PageHeader title="Case Reports" />
+
+      <View style={styles.content}>
+        <Reports navigation={navigation} />
+      </View>
     </View>
   );
 };
@@ -17,6 +20,7 @@ export default ReportPage;
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
+    backgroundColor: '#fff',
   },
 });
 //rnstyle

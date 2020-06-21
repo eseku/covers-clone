@@ -7,7 +7,9 @@ const SettingsPage = () => {
   return (
     <View style={styles.wrapper}>
       <PageHeader title="Settings" />
-      <Text>Settings</Text>
+      <View style={styles.content}>
+        <Text>Settings</Text>
+      </View>
     </View>
   );
 };
@@ -17,6 +19,12 @@ export default SettingsPage;
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
+    backgroundColor: '#fff',
+  },
+  content: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 //rnstyle

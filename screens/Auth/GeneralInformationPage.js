@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, StyleSheet, Text, SafeAreaView, ScrollView } from 'react-native';
 import { Button } from '~/components/common';
 import { Section } from '~/components/generalinformation';
+import { AppContext } from '~/context';
+
 const GeneralInformationPage = (props) => {
+  const { toggleLoggedIn } = useContext(AppContext);
+
   return (
     <SafeAreaView style={styles.wrapper}>
       <View style={styles.ContentStyle}>
@@ -70,7 +74,13 @@ const GeneralInformationPage = (props) => {
           </ScrollView>
         </View>
         <View style={styles.FooterStyle}>
-          <Button backgroundColor="#000" title="Let's get started..." onPress={() => {}} />
+          <Button
+            backgroundColor="#000"
+            title="Let's get started..."
+            onPress={() => {
+              toggleLoggedIn();
+            }}
+          />
         </View>
       </View>
     </SafeAreaView>
