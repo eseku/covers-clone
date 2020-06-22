@@ -22,7 +22,7 @@ function Profile({ navigation }) {
             </TouchableOpacity>
           </View>
           <View style={{ paddingVertical: 10, flexGrow: 1, paddingTop: 50 }}>
-            <ProfileContent />
+            <ProfileContent navigation={navigation} />
           </View>
         </View>
       </TouchableOpacity>

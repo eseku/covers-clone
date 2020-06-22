@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Keyboard, StyleSheet, ImageBackground, StatusBar, Platform, TouchableOpacity } from 'react-native';
-import { Caption, Form } from '../../components/getstarted/';
+import { Caption, Form } from '~/components/getstarted/';
 
 const imagesource = require('~/assets/images/covid.jpeg');
 

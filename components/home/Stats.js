@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import numeral from 'numeral';
 import { View, Text, StyleSheet, ImageBackground, ScrollView } from 'react-native';
 import Colors from '../../constants/Colors';
 
@@ -21,7 +22,7 @@ const Stats = ({ results }) => {
                 style={styles.image}
               >
                 <View style={styles.stat}>
-                  <Text style={styles.data}>{results.cases}</Text>
+                  <Text style={styles.data}>{numeral(results.cases).format(0, 0)}</Text>
                   <Text style={styles.label}>Cases</Text>
                 </View>
               </ImageBackground>
@@ -34,7 +35,7 @@ const Stats = ({ results }) => {
                 style={styles.image}
               >
                 <View style={styles.stat}>
-                  <Text style={styles.data}>{results.recovered}</Text>
+                  <Text style={styles.data}>{numeral(results.recovered).format('0,0')}</Text>
                   <Text style={styles.label}>Recoveries</Text>
                 </View>
               </ImageBackground>
@@ -47,7 +48,7 @@ const Stats = ({ results }) => {
                 style={styles.image}
               >
                 <View style={styles.stat}>
-                  <Text style={styles.data}>{results.deaths}</Text>
+                  <Text style={styles.data}>{numeral(results.deaths).format('0,0')}</Text>
                   <Text style={styles.label}>Deaths</Text>
                 </View>
               </ImageBackground>

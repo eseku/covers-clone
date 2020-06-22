@@ -1,14 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { PageHeader } from '~/components/common';
+import { Tabs } from '../Settings';
 //imrn
 
 const SettingsPage = ({ navigation }) => {
+  console.log(Tabs);
   return (
     <View style={styles.wrapper}>
       <PageHeader title="Settings" navigation={navigation} />
       <View style={styles.content}>
-        <Text>Settings</Text>
+        <Tabs navigation={navigation} />
       </View>
     </View>
   );
@@ -23,8 +25,8 @@ const styles = StyleSheet.create({
   },
   content: {
     flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    // justifyContent: 'center',
+    // alignItems: 'center',
   },
 });
 //rnstyle
