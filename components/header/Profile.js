@@ -6,7 +6,7 @@ import ProfileContent from './ProfileContent';
 
 const screenHeight = Math.round(Dimensions.get('screen').height);
 
-export default function () {
+export default function ({ navigation }) {
   const [showModal, setShowModal] = React.useState(false);
 
   return (
@@ -37,7 +37,7 @@ export default function () {
                 </TouchableOpacity>
               </View>
               <View style={{ paddingVertical: 10, flexGrow: 1, paddingTop: 50 }}>
-                <ProfileContent />
+                <ProfileContent navigation={navigation} />
               </View>
             </View>
           </TouchableOpacity>

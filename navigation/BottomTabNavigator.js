@@ -2,7 +2,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
 import Vitals from './vitals/';
 import Reports from './reports/';
+import Settings from './settings/';
 import TabBarIcon from '../components/TabBarIcon';
+import { Text } from 'react-native';
 import { SettingsPage, ReportPage, VitalsPage } from '../screens/AppFront/';
 import HomePage from './Home';
 const BottomTab = createBottomTabNavigator();
@@ -17,7 +19,7 @@ export default function BottomTabNavigator({ navigation, route }) {
         name="Home"
         component={HomePage}
         options={{
-          title: 'Home',
+          title: ({ focused }) => <Text style={{ color: focused ? '#000' : 'grey' }}>Home</Text>,
           tabBarIcon: ({ focused }) => <TabBarIcon ion focused={focused} name="md-home" />,
         }}
       />
@@ -26,7 +28,7 @@ export default function BottomTabNavigator({ navigation, route }) {
         name="Report"
         component={Reports}
         options={{
-          title: 'Report',
+          title: ({ focused }) => <Text style={{ color: focused ? '#000' : 'grey' }}>Report</Text>,
           tabBarIcon: ({ focused }) => <TabBarIcon fontawesome focused={focused} name="send" />,
         }}
       />
@@ -35,16 +37,16 @@ export default function BottomTabNavigator({ navigation, route }) {
         name="Vitals"
         component={Vitals}
         options={{
-          title: 'Vitals',
+          title: ({ focused }) => <Text style={{ color: focused ? '#000' : 'grey' }}>Vitals</Text>,
           tabBarIcon: ({ focused }) => <TabBarIcon ion focused={focused} name="md-pulse" />,
         }}
       />
 
       <BottomTab.Screen
         name="Settings"
-        component={SettingsPage}
+        component={Settings}
         options={{
-          title: 'Settings',
+          title: ({ focused }) => <Text style={{ color: focused ? '#000' : 'grey' }}>Settings</Text>,
           tabBarIcon: ({ focused }) => <TabBarIcon ion focused={focused} name="ios-settings" />,
         }}
       />

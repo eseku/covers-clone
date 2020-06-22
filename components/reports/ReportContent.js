@@ -6,7 +6,7 @@ import moment from 'moment';
 
 const ReportContent = ({ navigation }) => {
   const { addCase } = useContext(AppContext);
-  console.log(addCase);
+
   const [caseobj, setCase] = useState({
     behalf: 'Self',
     location: '',
@@ -88,6 +88,7 @@ const ReportContent = ({ navigation }) => {
           />
         </View>
       </View>
+
       <Button
         backgroundColor="#000"
         title="Report Case"
