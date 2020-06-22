@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import { PageHeader } from '~/components/common';
 import { Vitals } from '~/components/vitals/';
 //imrn
@@ -7,7 +7,7 @@ import { Vitals } from '~/components/vitals/';
 const VitalsPage = ({ navigation }) => {
   return (
     <View style={styles.wrapper}>
-      <PageHeader title="Vitals" />
+      <PageHeader title="Vitals" navigation={navigation} />
       <View style={styles.content}>
         <Vitals navigation={navigation} />
       </View>

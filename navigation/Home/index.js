@@ -17,7 +17,7 @@ const index = () => {
       initialRouteName="Home"
     >
       <Screen name="Home" component={HomePage} />
-      <Screen name="Profile" component={Profile} />
+      {/* <Screen name="Profile" component={Profile} /> */}
     </Navigator>
   );
 };

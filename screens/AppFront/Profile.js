@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-native-modal';
-import { View, Text, StyleSheet, TouchableOpacity, Dimensions, ScrollView, Image, Keyboard } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Keyboard } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import ProfileContent from '~/components/header/ProfileContent';
 
@@ -44,9 +44,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   ModalStyle: {
-    paddingHorizontal: 5,
-    backgroundColor: 'white',
     flex: 1,
-    paddingTop: 50,
   },
 });

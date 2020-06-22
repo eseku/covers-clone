@@ -1,22 +1,26 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Keyboard } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
+import ReportContent from '../../components/reports/ReportContent';
 
-const CreateReport = () => {
+const CreateReport = ({ navigation }) => {
   return (
     <View style={styles.wrapper}>
-      <View style={styles.headerStyle}>
-        <View>
-          <Text style={styles.headerTextStyle}>Log Symptoms</Text>
-        </View>
-
-        <View>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <AntDesign name="close" size={25} color="black" />
+      <TouchableOpacity activeOpacity={1} onPress={() => Keyboard.dismiss()} style={{ padding: 20, flex: 1 }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+          <Text style={styles.HeaderStyle}>Make Report</Text>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.goBack();
+            }}
+          >
+            <AntDesign name="close" size={24} color="black" />
           </TouchableOpacity>
         </View>
-      </View>
-      <Text>Create</Text>
+        <View style={{ paddingVertical: 10, flexGrow: 1, paddingTop: 50 }}>
+          <ReportContent navigation={navigation} />
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -31,5 +35,13 @@ const styles = StyleSheet.create({
     fontSize: 40,
     borderTopStartRadius: 50,
     borderTopEndRadius: 50,
+  },
+  ProfileImageStyle: {
+    height: 40,
+    width: 40,
+    borderRadius: 20,
+  },
+  ModalStyle: {
+    flex: 1,
   },
 });

@@ -1,5 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, TextInput } from 'react-native';
+import RadioButtons from 'radio-buttons-react-native';
+import { AntDesign } from '@expo/vector-icons';
+import { CheckBox } from '../common';
 
 const ProfileContent = () => {
   return (
@@ -9,13 +12,17 @@ const ProfileContent = () => {
         <Text style={styles.AgeTextStyle}>Enter Age</Text>
         <TextInput style={styles.AgeTextInputStyle} keyboardType="numeric" />
       </View>
+      <Text style={[styles.SubHeaderTextStyle, { paddingTop: 15 }]}>Select Your Gender</Text>
       <View style={styles.CheckboxViewStyle}>
-        <Text>Male</Text>
-        <Text>Female</Text>
+        <CheckBox label1="Male" label2="Female" />
       </View>
       <View style={styles.TravelHistoryViewStyle}>
         <Text style={{ fontWeight: '900', paddingVertical: 5, fontSize: 15 }}>Travel History</Text>
         <Text>Select the last two countries you have visited (If Applicable)</Text>
+        <View>
+          <View></View>
+          <View></View>
+        </View>
       </View>
     </View>
   );

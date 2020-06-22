@@ -1,9 +1,20 @@
 import React, { useState, createContext } from 'react';
 const AppContext = createContext({});
 import moment from 'moment';
+import { ApolloClient } from 'apollo-client';
+import { ApolloProvider } from '@apollo/react-hooks';
+import { HttpLink } from 'apollo-link-http';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+const cache = new InMemoryCache();
+const client = new ApolloClient({
+  cache,
+  link: new HttpLink({
+    uri: 'https://covid19-graphql.netlify.app/',
+  }),
+});
 
 const Provider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [logs, setLogs] = useState([]);
 
   const [currentLog, setCurrentLog] = useState({
@@ -16,13 +27,28 @@ const Provider = ({ children }) => {
     Tiredness: 0,
   });
 
+  const [cases, setCases] = useState([]);
+
   return (
     <>
-      <AppContext.Provider
-        value={{ isLoggedIn, toggleLoggedIn, countryList, addLog, logs, setCurrentLogAbs, clearCurrLog, currentLog }}
-      >
-        {children}
-      </AppContext.Provider>
+      <ApolloProvider client={client}>
+        <AppContext.Provider
+          value={{
+            isLoggedIn,
+            toggleLoggedIn,
+            countryList,
+            addLog,
+            logs,
+            setCurrentLogAbs,
+            clearCurrLog,
+            currentLog,
+            addCase,
+            cases,
+          }}
+        >
+          {children}
+        </AppContext.Provider>
+      </ApolloProvider>
     </>
   );
 
@@ -32,6 +58,10 @@ const Provider = ({ children }) => {
 
   function toggleLoggedIn() {
     return setIsLoggedIn(!isLoggedIn);
+  }
+
+  function addCase(caseObj) {
+    setCases([...cases, caseObj]);
   }
 
   function setCurrentLogAbs(objkey, val) {

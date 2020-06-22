@@ -3,10 +3,10 @@ import { View, Text, StyleSheet } from 'react-native';
 import { PageHeader } from '~/components/common';
 //imrn
 
-const SettingsPage = () => {
+const SettingsPage = ({ navigation }) => {
   return (
     <View style={styles.wrapper}>
-      <PageHeader title="Settings" />
+      <PageHeader title="Settings" navigation={navigation} />
       <View style={styles.content}>
         <Text>Settings</Text>
       </View>

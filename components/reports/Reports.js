@@ -1,21 +1,24 @@
 import React, { useContext } from 'react';
-import { TouchableOpacity, Text, StyleSheet, View, Alert } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet, View, Alert, ScrollView } from 'react-native';
 import { AppContext } from '~/context';
 import reports from '~/assets/images/reports.json';
 import Lottie from 'lottie-react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { AntDesign } from '@expo/vector-icons';
+import Colors from '~/constants/Colors';
 
 const Reports = ({ navigation }) => {
+  const { cases } = useContext(AppContext);
   return (
     <>
-      <EmptyContent navigation={navigation} />
+      {cases.length === 0 && <EmptyContent navigation={navigation} />}
+      {cases.length !== 0 && <Cases navigation={navigation} />}
     </>
   );
 };
 
 const EmptyContent = ({ navigation }) => {
   return (
-    <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{ alignItems: 'center', flex: 1 }}>
       <View>
         <Lottie source={reports} autoPlay={true} loop={true} style={{ width: 300, height: 300, marginVertical: 15 }} />
       </View>
@@ -30,6 +33,55 @@ const EmptyContent = ({ navigation }) => {
           <Text style={{ alignSelf: 'center' }}>Make Case Report</Text>
         </TouchableOpacity>
       </View>
+    </View>
+  );
+};
+
+const Cases = ({ navigation }) => {
+  const { cases } = useContext(AppContext);
+
+  return (
+    <View style={{ flex: 1, position: 'relative' }}>
+      {cases.map((el, index) => {
+        return (
+          <View
+            key={index}
+            style={{
+              paddingVertical: 25,
+              paddingHorizontal: 20,
+              borderBottomWidth: 1,
+              borderColor: Colors.divider,
+            }}
+          >
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+              <View>
+                <Text>{el.behalf}</Text>
+              </View>
+              <View>
+                <Text>{el.date.format('ddd MMM DD YYYY')}</Text>
+              </View>
+            </View>
+            <View style={{ paddingTop: 5 }}>
+              <View>
+                <Text numberOfLines={1} ellipsizeMode="tail">
+                  {el.description.trim()}
+                </Text>
+              </View>
+              <View>
+                <Text>{el.contact}</Text>
+              </View>
+            </View>
+          </View>
+        );
+      })}
+      <TouchableOpacity
+        style={styles.buttonContainer}
+        onPress={() => {
+          navigation.navigate('Create Report');
+        }}
+      >
+        <AntDesign name="plus" size={24} color="white" />
+      </TouchableOpacity>
     </View>
   );
 };

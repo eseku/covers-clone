@@ -9,7 +9,6 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 const Vitals = ({ navigation }) => {
   const { logs, clearCurrLog } = useContext(AppContext);
-  console.log(Lottie);
 
   return (
     <>
